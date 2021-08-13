@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
+interface ContainerProps {
+  readonly display?: string;
+}
+
 export const GlobalStyles = createGlobalStyle`
 	body{
 		font-family: Helvetica;
@@ -18,8 +22,10 @@ export const GlobalStyles = createGlobalStyle`
 	}
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   margin-left: auto;
   margin-right: auto;
   max-width: 1140px;
+  display: ${({ display }) => (display ? display : "block")};
+  justify-content: space-between;
 `;

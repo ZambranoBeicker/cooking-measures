@@ -8,9 +8,11 @@ function Routes() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <GlobalStyles />
-          <Header />
-          <Home />
+          <>
+            <GlobalStyles />
+            <Header />
+            <Home />
+          </>
         </Route>
       </Switch>
     </Router>
