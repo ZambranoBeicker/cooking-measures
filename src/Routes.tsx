@@ -5,7 +5,7 @@ function Routes() {
   return (
     <Router>
       <Switch>
-        <Route exact component={Home} />
+        <Route exact component={Home} path="/" />
       </Switch>
     </Router>
   );
