@@ -1,9 +1,15 @@
-import * as React from "react";
+import { Wrapper, Title, TextField } from "./styles";
+import { Container } from "../../global";
 
 export default function Home(): JSX.Element {
   return (
     <>
-      <p>Hello world</p>
+      <Container>
+        <Wrapper>
+          <Title>What’s your today’s recipe?</Title>
+          <TextField placeholder="Type here your recipe name" />
+        </Wrapper>
+      </Container>
     </>
   );
 }
