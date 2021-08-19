@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Wrapper, Title, TextField } from "./styles";
 
 interface RecipeNameSectionProps {
-  setUnmount: (state: boolean) => void;
+  setUnmount: (updater: (index: number) => number) => void;
 }
 
 export default function RecipeNameSection({
@@ -13,7 +13,9 @@ export default function RecipeNameSection({
   return (
     <Wrapper
       unmount={unmountAnimation}
-      onAnimationEnd={() => unmountAnimation && setUnmount(true)}
+      onAnimationEnd={() =>
+        unmountAnimation && setUnmount((state) => state + 1)
+      }
     >
       <Title>What’s your today’s recipe?</Title>
       <TextField
