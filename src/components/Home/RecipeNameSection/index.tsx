@@ -1,15 +1,28 @@
-import { useEffect, useState } from "react";
-import { Wrapper, Title, TextField } from "./styles";
+import { useState } from "react";
 
 interface RecipeNameSectionProps {
   setUnmount: (updater: (index: number) => number) => void;
+  styles: {
+    Title: (props: { children: string }) => JSX.Element;
+    Wrapper: (props: {
+      children: JSX.Element[];
+      unmount: boolean;
+      onAnimationEnd: () => false | void;
+    }) => JSX.Element;
+    Input: (props: {
+      placeholder: string;
+      onKeyPress: (event: React.KeyboardEvent) => void;
+    }) => JSX.Element;
+  };
 }
 
 export default function RecipeNameSection({
   setUnmount,
+  styles,
 }: RecipeNameSectionProps): JSX.Element {
   const [unmountAnimation, setUnmountAnimation] = useState(false);
 
+  const { Title, Wrapper, Input: TextField } = styles;
   return (
     <Wrapper
       unmount={unmountAnimation}

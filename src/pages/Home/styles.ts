@@ -36,7 +36,7 @@ export const Title = styled.h1`
 
 export const Wrapper = styled.div<WrapperProps>`
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   animation: ${({ unmount }) => (unmount ? WrapperFadeOut : WrapperFadeIn)} 0.3s
     forwards;
 `;
