@@ -6,19 +6,24 @@ import StepsListSection from "../../components/Home/StepsListSection";
 
 export default function Home(): JSX.Element {
   const [index, setIndex] = useState(0);
-  const [sections, setSections] = useState([
-    <RecipeNameSection
-      styles={{ Title: Title, Wrapper: Wrapper, Input: TextField }}
-      setUnmount={setIndex}
-    />,
-    <StepsListSection
-      styles={{ Title: Title, Wrapper: Wrapper, Input: TextField }}
-      setUnmount={setIndex}
-    />,
-  ]);
+  const [recipeTitle, setRecipeTitle] = useState("");
   return (
     <>
-      <Container>{sections[index]}</Container>
+      <Container>
+        {index === 0 ? (
+          <RecipeNameSection
+            styles={{ Title: Title, Wrapper: Wrapper, Input: TextField }}
+            setTitle={(title) => setRecipeTitle(title)}
+            setUnmount={setIndex}
+          />
+        ) : (
+          <StepsListSection
+            styles={{ Title: Title, Wrapper: Wrapper, Input: TextField }}
+            recipeTitle={recipeTitle}
+            setUnmount={setIndex}
+          />
+        )}
+      </Container>
     </>
   );
 }
