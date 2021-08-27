@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Container } from "../../global";
 import { Wrapper, Title, TextField } from "./styles";
-import RecipeNameSection from "../../components/Home/RecipeNameSection";
-import StepsListSection from "../../components/Home/StepsListSection";
+import RecipeNameSection from "./components/RecipeNameSection";
+import StepsListSection from "./components/StepsListSection";
 
 export default function Home(): JSX.Element {
   const [index, setIndex] = useState(0);
