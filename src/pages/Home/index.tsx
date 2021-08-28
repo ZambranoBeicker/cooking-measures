@@ -3,10 +3,12 @@ import { Container } from "../../global";
 import { Wrapper, Title, TextField } from "./styles";
 import RecipeNameSection from "./components/RecipeNameSection";
 import StepsListSection from "./components/StepsListSection";
+import Buttons from "./components/Buttons";
 
 export default function Home(): JSX.Element {
   const [index, setIndex] = useState(0);
   const [recipeTitle, setRecipeTitle] = useState("");
+
   return (
     <>
       <Container>
@@ -23,6 +25,11 @@ export default function Home(): JSX.Element {
             setUnmount={setIndex}
           />
         )}
+        <Buttons setIndex={(newIndex: number) => {
+          if (newIndex + index < 0) return
+          if (newIndex + index > 1) return
+          setIndex(index + newIndex)
+        }} />
       </Container>
     </>
   );
